@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: IkiPPasSwsSwwOrDiPasSweLiPasSwsSwInG
+      MYSQL_USER: aisudbqaasd
+      MYSQL_PASSWORD: IkiPasSwOrDaNgeLManInG
+      MYSQL_DATABASE: undangan-db
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+  undangan-api:
+    restart: always
+    image: krismyid/spe-skill-test:latest
+    environment:
+      DB_HOST: mysql
+      DB_USER: aisudbqaasd
+      DB_PASS: IkiPPasSwsSwwOrDiPasSweLiPasSwsSwInG
+      DB_NAME: undangan-db
+      DB_PORT: 3306
+      DB_DRIV: mysql
+    ports:
+      - 8181:80
